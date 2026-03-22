@@ -2,166 +2,292 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
-    <title>The Gambia Academy | Student Resources</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+<title>TGA Student Folders</title>
 
-    <style>
-        :root {
-            --gold: #020742;
-            --green: #0F5D4A;
-            --red: #8B2C2C;
-            --cream: #FAF7F2;
-            --dark: #1F1F1F;
-        }
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0F5D4A">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Segoe UI", system-ui
-        }
+<style>
+:root {
+    --green: #0F5D4A;
+    --gold: #020742;
+    --cream: #FAF7F2;
+}
 
-        body {
-            background: var(--cream);
-            color: var(--dark)
-        }
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", system-ui, sans-serif;
+}
 
-        .header {
-            background: linear-gradient(135deg, var(--green), #083A2E);
-            color: #fff;
-            padding: 40px 20px 60px;
-            text-align: center;
-            position: relative;
-        }
+body {
+    background: var(--cream);
+}
 
-        .header::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 6px;
-            background: linear-gradient(to right, var(--gold), var(--red), var(--gold));
-        }
+/* HEADER */
+.header {
+    background: linear-gradient(135deg, var(--green), #380410);
+    color: #fff;
+    padding: 40px 20px 60px;
+    text-align: center;
+    position: relative;
+}
 
-        .main {
-            padding: 40px 20px;
-            display: flex;
-            justify-content: center
-        }
+.header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: var(--gold);
+}
 
-        .portal-grid {
-            max-width: 1100px;
-            width: 100%;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 260px));
-            gap: 22px;
-            justify-content: center;
-        }
+/* MAIN */
+.main {
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+}
 
-        .portal-card {
-            background: #fff;
-            border-radius: 14px;
-            padding: 26px 20px;
-            text-align: center;
-            text-decoration: none;
-            color: var(--dark);
-            box-shadow: 0 10px 24px rgba(45, 2, 37, 0.08);
-            transition: .35s ease;
-            position: relative;
-        }
+/* GRID */
+.portal-grid {
+    max-width: 900px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 30px;
+    justify-items: center;
+}
 
-        .portal-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 5px;
-            width: 100%;
-            border-radius: 14px 14px 0 0;
-            background: var(--green);
-        }
+/* TILE */
+.portal-tile {
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
 
-        .portal-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgb(37, 3, 3);
-        }
+.portal-tile:hover {
+    transform: translateY(-5px);
+}
 
-        .footer {
-            text-align: center;
-            padding: 25px 10px;
-            font-size: .8rem;
-            color: #000000;
-        }
-    </style>
+/* ICON */
+.tile-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    background: #f59e0b;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    transition: transform 0.25s ease;
+}
+
+/* ICON ANIMATION */
+.portal-tile:hover .tile-icon {
+    transform: scale(1.1);
+}
+
+.tile-icon svg {
+    width: 30px;
+    height: 30px;
+    fill: white;
+}
+
+/* LABEL */
+.portal-tile p {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 25px 10px;
+    font-size: .8rem;
+}
+</style>
 </head>
 
 <body>
-    <header class="header">
-        <img src="logo.png" alt="The Gambia Academy">
-        <h1>The Gambia Academy</h1>
-        <h3>Student Resource Folders</h3>
-        <p>Select your name to access your project folder.</p> 
-        <p>Be sure to keep your work updated and submit all project files on time.</p>
-    </header>
 
-    <main class="main">
-        <section class="portal-grid">
+<header class="header">
+    <h1>The Gambia Academy Student Folders</h1>
+    <p>Learning with Purpose • Leading with Integrity</p>
+    <p>Open folders and manage your academic documents</p>
+    <h3>Please, select the folder that has your name on it.</h3>
+</header>
 
-            <div class="portal-card" onclick="window.location.href='https://drive.google.com/drive/folders/1440NhITlRODBWVonuOshZyA1dXcSJd08?usp=sharing'"><h3>Borry Sanneh</h3></div>
+<main class="main">
+<section class="portal-grid">
 
-            <div class="portal-card" onclick="window.location.href='https://drive.google.com/drive/folders/10sKw2UbVr0YW1ShDRPtdfjmClIYZYFPR?usp=drive_link'"><h3>Choro Fall</h3></div>
+<!-- TEMPLATE: copy pattern -->
 
-            <div class="portal-card" onclick="window.location.href='https://drive.google.com/drive/folders/1gXoUfgt6Jm1yUv0K5C08RtKiyUcP_flf?usp=drive_link'"><h3>Fatou Bojang</h3></div>
+<div class="portal-tile" onclick="window.location.href='https://drive.google.com/drive/folders/1440NhITlRODBWVonuOshZyA1dXcSJd08?usp=sharing'">
+    <div class="tile-icon">
+        <svg viewBox="0 0 24 24">
+            <path d="M10 4l2 2h8v12H4V4h6z"/>
+        </svg>
+    </div>
+    <p>Borry Sanneh</p>
+</div>
 
-            <div class="portal-card" onclick="window.location.href='https://drive.google.com/drive/folders/1k7Fo4VLJi7JV5uJcHA0nb4FZXd23RuQW?usp=drive_link'"><h3>Hulay Jallow</h3></div>
+<div class="portal-tile" onclick="window.location.href='https://drive.google.com/drive/folders/10sKw2UbVr0YW1ShDRPtdfjmClIYZYFPR?usp=drive_link'">
+    <div class="tile-icon"><svg viewBox="0 0 24 24"><path d="M10 4l2 2h8v12H4V4h6z"/></svg></div>
+    <p>Choro Fall</p>
+</div>
 
-            <div class="portal-card" onclick="window.location.href='https://drive.google.com/drive/folders/1JSKMwfYSYfqGCngBkgXGVd2Xt7BWBuil?usp=drive_link'"><h3>Jainaba Bah</h3></div>
+<div class="portal-tile" onclick="window.location.href='https://drive.google.com/drive/folders/1gXoUfgt6Jm1yUv0K5C08RtKiyUcP_flf?usp=drive_link'">
+    <div class="tile-icon"><svg viewBox="0 0 24 24"><path d="M10 4l2 2h8v12H4V4h6z"/></svg></div>
+    <p>Fatou Bojang</p>
+</div>
 
-            <div class="portal-card" onclick="window.location.href='https://drive.google.com/drive/folders/1iTgkcXMmamkQ3JRm5MUx0crys4-Dx85O?usp=drive_link'"><h3>Jalimaka Suso</h3></div>
+<div class="portal-tile" onclick="window.location.href='https://drive.google.com/drive/folders/1k7Fo4VLJi7JV5uJcHA0nb4FZXd23RuQW?usp=drive_link'">
+    <div class="tile-icon"><svg viewBox="0 0 24 24"><path d="M10 4l2 2h8v12H4V4h6z"/></svg></div>
+    <p>Hulay Jallow</p>
+</div>
 
-            <div class="portal-card" onclick="window.location.href='https://drive.google.com/drive/folders/1rIFjhdFJk527H2qvmU5yPIrP3hUPQ9j3?usp=drive_link'"><h3>Khalifa Jobarteh</h3></div>
+<div class="portal-tile" onclick="window.location.href='https://drive.google.com/drive/folders/1JSKMwfYSYfqGCngBkgXGVd2Xt7BWBuil?usp=drive_link'">
+    <div class="tile-icon"><svg viewBox="0 0 24 24"><path d="M10 4l2 2h8v12H4V4h6z"/></svg></div>
+    <p>Jainaba Bah</p>
+</div>
 
-            <div class="portal-card" onclick="window.location.href='https://drive.google.com/drive/folders/1t_C5RrUm8f_KS6jLTxyJ3XGP_TwhQGI7?usp=drive_link'"><h3>Lamin Camara</h3></div>
+<div class="portal-tile" onclick="window.location.href='https://drive.google.com/drive/folders/1iTgkcXMmamkQ3JRm5MUx0crys4-Dx85O?usp=drive_link'">
+    <div class="tile-icon"><svg viewBox="0 0 24 24"><path d="M10 4l2 2h8v12H4V4h6z"/></svg></div>
+    <p>Jalimaka Suso</p>
+</div>
 
-            <div class="portal-card" onclick="window.location.href='https://drive.google.com/drive/folders/1NI8TCetWBhEdMtnUQQZQUlI1Bh4cv9-F?usp=drive_link'"><h3>Lamin Dibba</h3></div>
+<div class="portal-tile" onclick="window.location.href='https://drive.google.com/drive/folders/1rIFjhdFJk527H2qvmU5yPIrP3hUPQ9j3?usp=drive_link'">
+    <div class="tile-icon"><svg viewBox="0 0 24 24"><path d="M10 4l2 2h8v12H4V4h6z"/></svg></div>
+    <p>Khalifa Jobarteh</p>
+</div>
 
-            <div class="portal-card" onclick="window.location.href='https://drive.google.com/drive/folders/1Y05-xUMbW1BsCCBuSm8TUptbqbzE_rxT?usp=drive_link'"><h3>Mama Saho</h3></div>
+<div class="portal-tile" onclick="window.location.href='https://drive.google.com/drive/folders/1t_C5RrUm8f_KS6jLTxyJ3XGP_TwhQGI7?usp=drive_link'">
+    <div class="tile-icon"><svg viewBox="0 0 24 24"><path d="M10 4l2 2h8v12H4V4h6z"/></svg></div>
+    <p>Lamin Camara</p>
+</div>
 
-            <div class="portal-card" onclick="window.location.href='https://drive.google.com/drive/folders/1oA2eu2f9QWOFfhjnq_-vN0Vpzh8nUpu9?usp=drive_link'"><h3>Michael Sambou</h3></div>
+<div class="portal-tile" onclick="window.location.href='https://drive.google.com/drive/folders/1NI8TCetWBhEdMtnUQQZQUlI1Bh4cv9-F?usp=drive_link'">
+    <div class="tile-icon"><svg viewBox="0 0 24 24"><path d="M10 4l2 2h8v12H4V4h6z"/></svg></div>
+    <p>Lamin Dibba</p>
+</div>
 
-            <div class="portal-card" onclick="window.location.href='https://drive.google.com/drive/folders/19uI29QGrgzIToJvGhUC1HEkTgWmGvoMk?usp=drive_link'"><h3>Naffisatou</h3></div>
+<div class="portal-tile" onclick="window.location.href='https://drive.google.com/drive/folders/1Y05-xUMbW1BsCCBuSm8TUptbqbzE_rxT?usp=drive_link'">
+    <div class="tile-icon"><svg viewBox="0 0 24 24"><path d="M10 4l2 2h8v12H4V4h6z"/></svg></div>
+    <p>Mama Saho</p>
+</div>
 
-            <div class="portal-card" onclick="window.location.href='https://drive.google.com/drive/folders/1U0ZKI9QfmzmMYAKrStroJsF1dU36YELC?usp=drive_link'"><h3>Neovi Gomez</h3></div>
+<div class="portal-tile" onclick="window.location.href='https://drive.google.com/drive/folders/1oA2eu2f9QWOFfhjnq_-vN0Vpzh8nUpu9?usp=drive_link'">
+    <div class="tile-icon"><svg viewBox="0 0 24 24"><path d="M10 4l2 2h8v12H4V4h6z"/></svg></div>
+    <p>Michael Sambou</p>
+</div>
 
-            <div class="portal-card" onclick="window.location.href='https://drive.google.com/drive/folders/1QhVO-bZYse31-7S5h9YD91W5z5Cuydjw?usp=drive_link'"><h3>Oumie Saho</h3></div>
+<div class="portal-tile" onclick="window.location.href='https://drive.google.com/drive/folders/19uI29QGrgzIToJvGhUC1HEkTgWmGvoMk?usp=drive_link'">
+    <div class="tile-icon"><svg viewBox="0 0 24 24"><path d="M10 4l2 2h8v12H4V4h6z"/></svg></div>
+    <p>Naffisatou</p>
+</div>
 
-            <div class="portal-card" onclick="window.location.href='https://drive.google.com/drive/folders/1hrPAsbvnE90YmoN3PTLn3uI80xAX0WIZ?usp=drive_link'"><h3>Rohey</h3></div>
+<div class="portal-tile" onclick="window.location.href='https://drive.google.com/drive/folders/1U0ZKI9QfmzmMYAKrStroJsF1dU36YELC?usp=drive_link'">
+    <div class="tile-icon"><svg viewBox="0 0 24 24"><path d="M10 4l2 2h8v12H4V4h6z"/></svg></div>
+    <p>Neovi Gomez</p>
+</div>
 
-            <div class="portal-card" onclick="window.location.href='https://drive.google.com/drive/folders/1rKdYcXx_7IQ-_Q8Qb9qmknsr-6jue3Yk?usp=drive_link'"><h3>Saadio Jobarteh</h3></div>
+<div class="portal-tile" onclick="window.location.href='https://drive.google.com/drive/folders/1QhVO-bZYse31-7S5h9YD91W5z5Cuydjw?usp=drive_link'">
+    <div class="tile-icon"><svg viewBox="0 0 24 24"><path d="M10 4l2 2h8v12H4V4h6z"/></svg></div>
+    <p>Oumie Saho</p>
+</div>
 
-            <div class="portal-card" onclick="window.location.href='https://drive.google.com/drive/folders/1x_jeHWUcOrfb-vnNi5sgmoYhkqwDFVL7?usp=drive_link'"><h3>Sainabou Jallow</h3></div>
+<div class="portal-tile" onclick="window.location.href='https://drive.google.com/drive/folders/1hrPAsbvnE90YmoN3PTLn3uI80xAX0WIZ?usp=drive_link'">
+    <div class="tile-icon"><svg viewBox="0 0 24 24"><path d="M10 4l2 2h8v12H4V4h6z"/></svg></div>
+    <p>Rohey</p>
+</div>
 
-            <div class="portal-card" onclick="window.location.href='https://drive.google.com/drive/folders/14OqSGOOeOQm5SKISSalvqTCMGmMnMhdV?usp=drive_link'"><h3>Sally Camara</h3></div>
+<div class="portal-tile" onclick="window.location.href='https://drive.google.com/drive/folders/1rKdYcXx_7IQ-_Q8Qb9qmknsr-6jue3Yk?usp=drive_link'">
+    <div class="tile-icon"><svg viewBox="0 0 24 24"><path d="M10 4l2 2h8v12H4V4h6z"/></svg></div>
+    <p>Saadio Jobarteh</p>
+</div>
 
-            <div class="portal-card" onclick="window.location.href='https://drive.google.com/drive/folders/1Y8I64J24dUWokfQg9Pw-9zo3So1l4vMS?usp=drive_link'"><h3>Sekou Jobarteh</h3></div>
+<div class="portal-tile" onclick="window.location.href='https://drive.google.com/drive/folders/1x_jeHWUcOrfb-vnNi5sgmoYhkqwDFVL7?usp=drive_link'">
+    <div class="tile-icon"><svg viewBox="0 0 24 24"><path d="M10 4l2 2h8v12H4V4h6z"/></svg></div>
+    <p>Sainabou Jallow</p>
+</div>
 
-            <div class="portal-card" onclick="window.location.href='https://drive.google.com/drive/folders/10BOnnTuL9vsq1o6K1fbC-VtEYDgW7LJI?usp=drive_link'"><h3>Yaya Badjie</h3></div>
+<div class="portal-tile" onclick="window.location.href='https://drive.google.com/drive/folders/14OqSGOOeOQm5SKISSalvqTCMGmMnMhdV?usp=drive_link'">
+    <div class="tile-icon"><svg viewBox="0 0 24 24"><path d="M10 4l2 2h8v12H4V4h6z"/></svg></div>
+    <p>Sally Camara</p>
+</div>
 
-        </section>
-    </main>
+<div class="portal-tile" onclick="window.location.href='https://drive.google.com/drive/folders/1Y8I64J24dUWokfQg9Pw-9zo3So1l4vMS?usp=drive_link'">
+    <div class="tile-icon"><svg viewBox="0 0 24 24"><path d="M10 4l2 2h8v12H4V4h6z"/></svg></div>
+    <p>Sekou Jobarteh</p>
+</div>
+
+<div class="portal-tile" onclick="window.location.href='https://drive.google.com/drive/folders/10BOnnTuL9vsq1o6K1fbC-VtEYDgW7LJI?usp=drive_link'">
+    <div class="tile-icon"><svg viewBox="0 0 24 24"><path d="M10 4l2 2h8v12H4V4h6z"/></svg></div>
+    <p>Yaya Badjie</p>
+</div>
+
+</section>
+</main>
 
 <footer class="footer">
-    <div>       
-        Powered by JangAfrica<br>
-        © <span id="year"></span> The Gambia Academy
-    </div>
+    Powered by JangAfrica<br>
+    © <span id="year"></span> The Gambia Academy
 </footer>
 
-    <script>
-        document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+<script>
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("service-worker.js");
+}
+</script>
+
+<script>
+(function () {
+    const isIOS = /iphone|ipad|ipod/i.test(window.navigator.userAgent);
+    const isInStandaloneMode = ('standalone' in window.navigator) && window.navigator.standalone;
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+    if (!isIOS || isInStandaloneMode || !isSafari) return;
+    if (localStorage.getItem("iosInstallDismissed")) return;
+
+    const banner = document.createElement("div");
+    banner.innerHTML = `
+        <div style="
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 420px;
+            background: #1e293b;
+            color: white;
+            padding: 16px 20px;
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            z-index: 9999;
+        ">
+            📲 Install this app: Tap Share ⬆️ then "Add to Home Screen"
+            <button id="ios-install-close" style="margin-top:10px;">Dismiss</button>
+        </div>
+    `;
+    document.body.appendChild(banner);
+
+    document.getElementById("ios-install-close").onclick = function () {
+        banner.remove();
+        localStorage.setItem("iosInstallDismissed", "true");
+    };
+})();
+</script>
 
 </body>
 </html>
