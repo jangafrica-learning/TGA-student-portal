@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+<title>TGA Student Portal</title>
+
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0F5D4A">
+
+<style>
+:root {
+    --green: #0F5D4A;
+    --gold: #020742;
+    --cream: #FAF7F2;
+    --dark: #1F1F1F;
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+body {
+    background: var(--cream);
+    color: var(--dark);
+}
+
+/* HEADER */
+.header {
+    background: linear-gradient(135deg, var(--green), #380410);
+    color: #fff;
+    padding: 40px 20px 60px;
+    text-align: center;
+    position: relative;
+}
+
+.header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: var(--gold);
+}
+
+.header img {
+    width: 90px;
+    margin-bottom: 10px;
+}
+
+/* MAIN */
+.main {
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.portal-grid {
+    max-width: 1000px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 260px));
+    gap: 26px;
+    justify-content: center;
+}
+
+/* CARD */
+.portal-card {
+    background: #a6bff1;
+    border-radius: 18px;
+    padding: 30px 22px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.portal-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 35px rgba(0,0,0,0.18);
+}
+
+/* ICON */
+.icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+/* ICON ANIMATION (clean + subtle) */
+.portal-card:hover .icon {
+    transform: scale(1.12);
+}
+
+.icon svg {
+    width: 36px;
+    height: 36px;
+    fill: white;
+}
+
+/* TEXT */
+.portal-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.portal-card p {
+    font-size: 14px;
+    color: #2f3136;
+    margin-bottom: 18px;
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    background: #01433b;
+    color: #fff;
+    font-size: 12px;
+    padding: 9px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+/* COLORS */
+.portal-card.folders .icon {
+    background: #f59e0b;
+}
+
+.portal-card.requests .icon {
+    background: #7c3aed;
+}
+
+.portal-card.hub .icon {
+    background: #0ea5e9;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 25px 10px;
+    font-size: .8rem;
+    color: #000;
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+    <img src="logo.png">
+    <h1>The Gambia Academy Student Portal</h1>
+    <p>Learning with Purpose • Leading with Integrity</p>
+    <p>Open folders | Submit Requests | View Progress</p>
+</header>
+
+<main class="main">
+<section class="portal-grid">
+
+<!-- STUDENT FOLDERS -->
+<div class="portal-card folders" onclick="window.location.href='folders_access.html'">
+    <div class="icon">
+        <svg viewBox="0 0 24 24">
+            <path d="M10 4l2 2h8v12H4V4h6z"/>
+        </svg>
+    </div>
+    <h3>Student Folders</h3>
+    <p>Access your academic files</p>
+    <span class="btn">OPEN NOW</span>
+</div>
+
+<!-- STUDENT REQUEST -->
+<div class="portal-card requests" onclick="window.location.href='student_request.html'">
+    <div class="icon">
+        <svg viewBox="0 0 24 24">
+            <path d="M19 3H5c-1.1 0-2 .9-2 2v16h18V5c0-1.1-.9-2-2-2zM7 7h10v2H7zm0 4h10v2H7zm0 4h7v2H7z"/>
+        </svg>
+    </div>
+    <h3>Student Requests</h3>
+    <p>Finance • Equipment • Support</p>
+    <span class="btn">SUBMIT NOW</span>
+</div>
+
+<!-- STUDENT HUB -->
+<div class="portal-card hub" onclick="window.location.href='student_hub.html'">
+    <div class="icon">
+        <svg viewBox="0 0 24 24">
+            <path d="M12 2l9 4-9 4-9-4zm0 7l9 4-9 4-9-4z"/>
+        </svg>
+    </div>
+    <h3>Student Hub</h3>
+    <p>View progress & Schedule</p>
+    <span class="btn">VIEW NOW</span>
+</div>
+
+</section>
+</main>
+
+<footer class="footer">
+    Powered by JangAfrica<br>
+    © <span id="year"></span> The Gambia Academy
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+<script>
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("service-worker.js");
+}
+</script>
+
+<script>
+(function () {
+    const isIOS = /iphone|ipad|ipod/i.test(window.navigator.userAgent);
+    const isInStandaloneMode = ('standalone' in window.navigator) && window.navigator.standalone;
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+    if (!isIOS || isInStandaloneMode || !isSafari) return;
+    if (localStorage.getItem("iosInstallDismissed")) return;
+
+    const banner = document.createElement("div");
+    banner.innerHTML = `
+        <div style="
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 420px;
+            background: #1e293b;
+            color: white;
+            padding: 16px 20px;
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            z-index: 9999;
+        ">
+            📲 Install this app: Tap Share ⬆️ then "Add to Home Screen"
+            <button id="ios-install-close" style="margin-top:10px;">Dismiss</button>
+        </div>
+    `;
+    document.body.appendChild(banner);
+
+    document.getElementById("ios-install-close").onclick = function () {
+        banner.remove();
+        localStorage.setItem("iosInstallDismissed", "true");
+    };
+})();
+</script>
+
+</body>
+</html>
